@@ -4,7 +4,7 @@ public class SnakeLaddre {
 
     public static final int  WIN_POSITION = 100;
    public static int POSITION = 0;
-
+     static int diacount = 0;
      static int diaRoll(){
         int diavalue = (int)(Math.random()*10 % 6)+1;
          System.out.println("DIAVALUE =" + diavalue);
@@ -16,13 +16,14 @@ public class SnakeLaddre {
        while (POSITION < WIN_POSITION){
 
            int number = (int)(Math.random()*10%3);
+           System.out.println("choice :" + number);
            int diavalue = diaRoll();
            switch (number){
                case 0:
-                   System.out.println("Not move the position of plyear");
+                   System.out.println("No Play");
                    break;
                case 1:
-                   System.out.println("Ladder the player moves ahead");
+                   diacount++;
                    POSITION = POSITION + diavalue;
                    if (POSITION > WIN_POSITION){
                        POSITION = POSITION - diavalue;
@@ -30,7 +31,7 @@ public class SnakeLaddre {
                    System.out.println(POSITION);
                    break;
                case 2:
-                   System.out.println("Snake the player moves behind");
+                   diacount++;
                    POSITION = POSITION - diavalue;
                    if (POSITION < 0){
                        POSITION = 0;
@@ -42,7 +43,7 @@ public class SnakeLaddre {
                }
                break;
            }
-
+           System.out.println("Dice count = " + diacount);
        }
     }
 
